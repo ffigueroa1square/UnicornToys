@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Services", "Uni
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "UnicornToys.Front", "UnicornToys.Front\UnicornToys.Front.esproj", "{5BD20D4E-BCDF-426E-A737-9AED9DB0A85A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicornToys.API", "UnicornToys.API\UnicornToys.API.csproj", "{EF931501-BBB8-41F4-AF17-4610F5BA6FF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicornToys.API", "UnicornToys.API\UnicornToys.API.csproj", "{DE78D970-67A0-43B8-9F16-174759D133AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{5BD20D4E-BCDF-426E-A737-9AED9DB0A85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BD20D4E-BCDF-426E-A737-9AED9DB0A85A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BD20D4E-BCDF-426E-A737-9AED9DB0A85A}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{EF931501-BBB8-41F4-AF17-4610F5BA6FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF931501-BBB8-41F4-AF17-4610F5BA6FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF931501-BBB8-41F4-AF17-4610F5BA6FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF931501-BBB8-41F4-AF17-4610F5BA6FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE78D970-67A0-43B8-9F16-174759D133AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE78D970-67A0-43B8-9F16-174759D133AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE78D970-67A0-43B8-9F16-174759D133AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE78D970-67A0-43B8-9F16-174759D133AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

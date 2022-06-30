@@ -1,24 +1,27 @@
 {
+  "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:49633",
-      "sslPort": 44374
+      "applicationUrl": "http://localhost:48001",
+      "sslPort": 44372
     }
   },
   "profiles": {
     "UnicornToys.API": {
       "commandName": "Project",
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:7226;http://localhost:5226",
+      "applicationUrl": "https://localhost:7218;http://localhost:5218",
       "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
