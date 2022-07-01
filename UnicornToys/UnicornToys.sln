@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Data", "UnicornToys.Data\UnicornToys.Data.csproj", "{302634E0-463E-42B2-90EF-E47253D69DAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Domain", "UnicornToys.Data\UnicornToys.Domain.csproj", "{302634E0-463E-42B2-90EF-E47253D69DAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Repositories", "UnicornToys.Repo\UnicornToys.Repositories.csproj", "{C8F2A93E-991B-447F-A5C0-72E179F3E98E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Persistence", "UnicornToys.Repo\UnicornToys.Persistence.csproj", "{C8F2A93E-991B-447F-A5C0-72E179F3E98E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Services", "UnicornToys.Services\UnicornToys.Services.csproj", "{0FC5530A-A960-4C37-A990-31582625666F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.Application", "UnicornToys.Services\UnicornToys.Application.csproj", "{0FC5530A-A960-4C37-A990-31582625666F}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "UnicornToys.Front", "UnicornToys.Front\UnicornToys.Front.esproj", "{5BD20D4E-BCDF-426E-A737-9AED9DB0A85A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicornToys.API", "UnicornToys.API\UnicornToys.API.csproj", "{DE78D970-67A0-43B8-9F16-174759D133AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicornToys.API", "UnicornToys.API\UnicornToys.API.csproj", "{DE78D970-67A0-43B8-9F16-174759D133AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{79E3386A-3093-473A-8EB9-818C3223B9B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{71D40E15-6BFE-49E4-8A37-8CD541BB77DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{1194A262-1D73-4D70-B65E-AB276560ECAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{302634E0-463E-42B2-90EF-E47253D69DAF} = {79E3386A-3093-473A-8EB9-818C3223B9B4}
+		{C8F2A93E-991B-447F-A5C0-72E179F3E98E} = {71D40E15-6BFE-49E4-8A37-8CD541BB77DE}
+		{0FC5530A-A960-4C37-A990-31582625666F} = {79E3386A-3093-473A-8EB9-818C3223B9B4}
+		{5BD20D4E-BCDF-426E-A737-9AED9DB0A85A} = {1194A262-1D73-4D70-B65E-AB276560ECAC}
+		{DE78D970-67A0-43B8-9F16-174759D133AD} = {1194A262-1D73-4D70-B65E-AB276560ECAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FDB35F8E-98DF-48A0-B35D-BD35635C9BA9}
