@@ -1,4 +1,3 @@
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using UnicornToys.Application.Mappings;
 using UnicornToys.Persistence.Contexts;

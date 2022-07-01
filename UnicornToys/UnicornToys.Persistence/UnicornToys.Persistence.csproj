@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnicornToys.Data\UnicornToys.Domain.csproj" />
+    <ProjectReference Include="..\UnicornToys.Domain\UnicornToys.Domain.csproj" />
   </ItemGroup>
 
 </Project>

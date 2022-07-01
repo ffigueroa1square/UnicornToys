@@ -10,15 +10,18 @@
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnicornToys.Data\UnicornToys.Domain.csproj" />
-    <ProjectReference Include="..\UnicornToys.Repo\UnicornToys.Persistence.csproj" />
-    <ProjectReference Include="..\UnicornToys.Services\UnicornToys.Application.csproj" />
+    <ProjectReference Include="..\UnicornToys.Application\UnicornToys.Application.csproj" />
+    <ProjectReference Include="..\UnicornToys.Persistence\UnicornToys.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

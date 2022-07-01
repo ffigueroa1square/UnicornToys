@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnicornToys.Data\UnicornToys.Domain.csproj" />
-    <ProjectReference Include="..\UnicornToys.Repo\UnicornToys.Persistence.csproj" />
+    <ProjectReference Include="..\UnicornToys.Domain\UnicornToys.Domain.csproj" />
+    <ProjectReference Include="..\UnicornToys.Persistence\UnicornToys.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
