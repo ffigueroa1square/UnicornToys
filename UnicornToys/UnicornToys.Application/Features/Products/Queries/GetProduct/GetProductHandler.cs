@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using UnicornToys.Application.Dtos;
-using UnicornToys.Domain.Repositories;
+using UnicornToys.Domain.Products;
+using UnicornToys.Persistence;
 
 namespace UnicornToys.Application.Features.Products.Queries.GetProduct
 {
@@ -18,9 +19,9 @@ namespace UnicornToys.Application.Features.Products.Queries.GetProduct
 
         public async Task<ProductDto> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
-            var entity = await _unitOfWork.ProductReadOnlyRepository.Get(request.Id);
+            var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
 
-            return _mapper.Map<ProductDto>(entity);
+            return await Task.FromResult(_mapper.Map<ProductDto>(entity));
         }
     }
 }

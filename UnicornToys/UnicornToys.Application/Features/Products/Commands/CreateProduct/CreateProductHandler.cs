@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using UnicornToys.Domain.Products;
-using UnicornToys.Domain.Repositories;
+using UnicornToys.Persistence;
 
 namespace UnicornToys.Application.Features.Products.Commands.CreateProduct
 {
@@ -20,8 +20,9 @@ namespace UnicornToys.Application.Features.Products.Commands.CreateProduct
         {
             var entity = _mapper.Map(request, new Product());
 
-            await _unitOfWork.ProductCommandRepository.Create(entity);
-            return entity;
+            _unitOfWork.GetRepository<Product>().Add(entity);
+            _unitOfWork.Commit();
+            return await Task.FromResult(entity);
         }
     }
 }

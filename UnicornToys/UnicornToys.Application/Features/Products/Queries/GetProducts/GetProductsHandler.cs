@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using MediatR;
 using UnicornToys.Application.Dtos;
-using UnicornToys.Domain.Repositories;
+using UnicornToys.Domain.Products;
+using UnicornToys.Persistence;
 
 namespace UnicornToys.Application.Features.Products.Queries.GetProducts
 {
-    public class GetProductsHandler
+    public class GetProductsHandler : IRequestHandler<GetProductsQuery, List<ProductDto>>
     {
         private IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -15,11 +17,11 @@ namespace UnicornToys.Application.Features.Products.Queries.GetProducts
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+        public async Task<List<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var entities = await _unitOfWork.ProductReadOnlyRepository.GetMultiple(request.QueryOptions);
+            var entities = _unitOfWork.GetRepository<Product>().GetAllAsQueryable().ToList();
 
-            return _mapper.Map<IEnumerable<ProductDto>>(entities);
+            return await Task.FromResult(_mapper.Map<List<ProductDto>>(entities));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MediatR;
-using UnicornToys.Domain.Repositories;
+using UnicornToys.Domain.Products;
+using UnicornToys.Persistence;
 
 namespace UnicornToys.Application.Features.Products.Commands.DeleteProduct
 {
@@ -14,18 +15,18 @@ namespace UnicornToys.Application.Features.Products.Commands.DeleteProduct
 
         public async Task<bool> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var entity = _unitOfWork.ProductReadOnlyRepository.Get(request.Id);
+            var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
 
             if (entity == null)
             {
                 throw new Exceptions.ApplicationException(AppResource.ProductNotFound);
             }
 
-            var isSucceed = await _unitOfWork.ProductCommandRepository.Delete(request.Id);
+            _unitOfWork.GetRepository<Product>().Remove(entity);
+            _unitOfWork.Commit();
+            //if (!isSucceed) throw new Exceptions.ApplicationException(AppResource.ProductNotDeleted);
 
-            if (!isSucceed) throw new Exceptions.ApplicationException(AppResource.ProductNotDeleted);
-
-            return true;
+            return await Task.FromResult(true);
         }
     }
 }

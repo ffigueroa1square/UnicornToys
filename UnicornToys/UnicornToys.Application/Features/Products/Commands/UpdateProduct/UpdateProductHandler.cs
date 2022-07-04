@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
-using UnicornToys.Domain.Repositories;
+using UnicornToys.Domain.Products;
+using UnicornToys.Persistence;
 
 namespace UnicornToys.Application.Features.Products.Commands.UpdateProduct
 {
@@ -17,7 +18,7 @@ namespace UnicornToys.Application.Features.Products.Commands.UpdateProduct
 
         public async Task<bool> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _unitOfWork.ProductReadOnlyRepository.Get(request.Id);
+            var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
 
             if (entity == null)
             {
@@ -25,7 +26,9 @@ namespace UnicornToys.Application.Features.Products.Commands.UpdateProduct
             }
 
             _mapper.Map(request, entity);
-            return await _unitOfWork.ProductCommandRepository.Update(request.Id, entity);
+            _unitOfWork.GetRepository<Product>().Update(entity);
+            _unitOfWork.Commit();
+            return await Task.FromResult(true);
         }
     }
 }
