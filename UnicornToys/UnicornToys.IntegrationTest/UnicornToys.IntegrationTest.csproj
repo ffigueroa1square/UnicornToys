@@ -18,4 +18,11 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UnicornToys.API\UnicornToys.API.csproj" />
+    <ProjectReference Include="..\UnicornToys.Application\UnicornToys.Application.csproj" />
+    <ProjectReference Include="..\UnicornToys.Domain\UnicornToys.Domain.csproj" />
+    <ProjectReference Include="..\UnicornToys.Persistence\UnicornToys.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
