@@ -22,7 +22,7 @@ namespace UnicornToys.Application.Features.Products
             builder.RegisterType<UpdateProductCommand>().As<IRequest<bool>>().AsImplementedInterfaces();
             builder.RegisterType<GetProductHandler>().As<IRequestHandler<GetProductQuery, ProductDto>>().AsImplementedInterfaces();
             builder.RegisterType<GetProductsHandler>().As<IRequestHandler<GetProductsQuery, List<ProductDto>>>().AsImplementedInterfaces();
-            builder.RegisterType<CreateProductHandler>().As<IRequestHandler<CreateProductCommand, Product>>().AsImplementedInterfaces();
+            builder.RegisterType<CreateProductHandler>().As<IRequestHandler<CreateProductCommand, bool>>().AsImplementedInterfaces();
             builder.RegisterType<DeleteProductHandler>().As<IRequestHandler<DeleteProductCommand, bool>>().AsImplementedInterfaces();
             builder.RegisterType<UpdateProductHandler>().As<IRequestHandler<UpdateProductCommand, bool>>().AsImplementedInterfaces();
             builder.RegisterType<CreateProductValidator>().As<AbstractValidator<CreateProductCommand>>().AsImplementedInterfaces();

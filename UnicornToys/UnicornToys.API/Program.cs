@@ -3,6 +3,8 @@ using Autofac.Extensions.DependencyInjection;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using UnicornToys.API.Middlewares;
+using UnicornToys.Application.Features.Behaviors;
 using UnicornToys.Application.Features.Products;
 using UnicornToys.Application.Mappings;
 using UnicornToys.Persistence;
@@ -31,16 +33,19 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 
     containerBuilder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 
+    containerBuilder.RegisterType<ExceptionHandlingMiddleware>().InstancePerDependency();
+
     containerBuilder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly)
         .AsImplementedInterfaces();
 
-    containerBuilder.RegisterModule<ProductModule>();
+    containerBuilder.RegisterModule<ProductModule>();    
+    containerBuilder.RegisterGeneric(typeof(ValidationBehavior<,>)).As(typeof(IPipelineBehavior<,>));
 
     containerBuilder.Register<ServiceFactory>(ctx =>
     {
         var c = ctx.Resolve<IComponentContext>();
         return t => c.Resolve(t);
-    });
+    });               
 });
 
 builder.Services.AddControllers();
@@ -57,6 +62,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

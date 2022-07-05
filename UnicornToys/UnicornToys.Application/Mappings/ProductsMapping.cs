@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using UnicornToys.Application.Dtos;
+using UnicornToys.Application.Features.Products.Commands.CreateProduct;
 using UnicornToys.Domain.Products;
 
 namespace UnicornToys.Application.Mappings
@@ -13,7 +14,7 @@ namespace UnicornToys.Application.Mappings
                 .ReverseMap();
 
             CreateMap<ProductDto, Product>()
-                .ReverseMap();
+                .ReverseMap();            
         }
     }
 }

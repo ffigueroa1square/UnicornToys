@@ -18,17 +18,26 @@ namespace UnicornToys.Application.Features.Products.Commands.UpdateProduct
 
         public async Task<bool> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
+            var validator = new UpdateProductValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-            if (entity == null)
+            if (validationResult.IsValid == true)
             {
-                throw new Exceptions.ApplicationException(AppResource.ProductNotFound);
-            }
+                var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
 
-            _mapper.Map(request, entity);
-            _unitOfWork.GetRepository<Product>().Update(entity);
-            _unitOfWork.Commit();
-            return await Task.FromResult(true);
+                if (entity == null)
+                {
+                    return await Task.FromResult(false);
+                }
+
+                _mapper.Map(request.UpdateProductDto, entity);
+                _unitOfWork.GetRepository<Product>().Update(entity);
+                _unitOfWork.Commit();
+                return await Task.FromResult(true);
+            } else
+            {
+                return await Task.FromResult(false);
+            }
         }
     }
 }

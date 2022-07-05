@@ -5,7 +5,7 @@ using UnicornToys.Persistence;
 
 namespace UnicornToys.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductHandler : IRequestHandler<CreateProductCommand, Product>
+    public class CreateProductHandler : IRequestHandler<CreateProductCommand, bool>
     {
         private IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -16,13 +16,22 @@ namespace UnicornToys.Application.Features.Products.Commands.CreateProduct
             _mapper = mapper;
         }
 
-        public async Task<Product> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-        {
-            var entity = _mapper.Map(request, new Product());
+        public async Task<bool> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        {            
+            var validator = new CreateProductValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-            _unitOfWork.GetRepository<Product>().Add(entity);
-            _unitOfWork.Commit();
-            return await Task.FromResult(entity);
+            if (validationResult.IsValid == true)
+            {
+                var entity = _mapper.Map(request.CreateProductDto, new Product());
+
+                _unitOfWork.GetRepository<Product>().Add(entity);
+                _unitOfWork.Commit();
+                return await Task.FromResult(true);
+            } else
+            {
+                return await Task.FromResult(false);
+            }
         }
     }
 }

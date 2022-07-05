@@ -21,7 +21,7 @@ namespace UnicornToys.Application.Features.Products.Commands.UpdateProduct
             RuleFor(model => model.UpdateProductDto.Description)
                 .MaximumLength(50).WithMessage(String.Format(AppResource.MaxLengthValidation, 100));
             RuleFor(model => model.UpdateProductDto.AgeRestriction)
-                .ExclusiveBetween(0, 100).WithMessage(String.Format(AppResource.AgeRestrictionValidation, "Age", 0, 1));
+                .InclusiveBetween(0, 100).WithMessage(String.Format(AppResource.AgeRestrictionValidation, "Age", 0, 1));
             RuleFor(model => model.UpdateProductDto.Company)
                 .NotNull().WithMessage(String.Format(AppResource.FieldNullValidation, "Company"))
                 .NotEmpty().WithMessage(String.Format(AppResource.FieldEmptyValidation, "Company"))
@@ -29,7 +29,7 @@ namespace UnicornToys.Application.Features.Products.Commands.UpdateProduct
             RuleFor(model => model.UpdateProductDto.Price)
                 .NotNull().WithMessage(String.Format(AppResource.FieldNullValidation, "Price"))
                 .NotEmpty().WithMessage(String.Format(AppResource.FieldEmptyValidation, "Price"))
-                .ExclusiveBetween(0, 100).WithMessage(String.Format(AppResource.AgeRestrictionValidation, "Price", 1, 1000));
+                .InclusiveBetween(1, 1000).WithMessage(String.Format(AppResource.AgeRestrictionValidation, "Price", 1, 1000));
         }
     }
 }

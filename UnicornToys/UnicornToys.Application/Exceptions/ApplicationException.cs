@@ -1,9 +1,9 @@
 ﻿namespace UnicornToys.Application.Exceptions
 {
-    public class ApplicationException : Exception
+    public abstract class ApplicationException : Exception
     {
-        public ApplicationException(string message) : base(message)
-        {
-        }
+        protected ApplicationException(string title, string message) : base(message) => Title = title;
+
+        public string Title { get; }
     }
 }

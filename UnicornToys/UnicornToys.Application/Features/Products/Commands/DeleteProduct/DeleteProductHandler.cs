@@ -15,18 +15,26 @@ namespace UnicornToys.Application.Features.Products.Commands.DeleteProduct
 
         public async Task<bool> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
+            var validator = new DeleteProductValidator();
+            var validationResult = await validator.ValidateAsync(request);
 
-            if (entity == null)
+            if (validationResult.IsValid == true)
             {
-                throw new Exceptions.ApplicationException(AppResource.ProductNotFound);
+                var entity = _unitOfWork.GetRepository<Product>().FindById(request.Id);
+
+                if (entity == null)
+                {
+                    return await Task.FromResult(false);
+                }
+
+                _unitOfWork.GetRepository<Product>().Remove(entity);
+                _unitOfWork.Commit();
+
+                return await Task.FromResult(true);
+            } else
+            {
+                return await Task.FromResult(false);
             }
-
-            _unitOfWork.GetRepository<Product>().Remove(entity);
-            _unitOfWork.Commit();
-            //if (!isSucceed) throw new Exceptions.ApplicationException(AppResource.ProductNotDeleted);
-
-            return await Task.FromResult(true);
         }
     }
 }
