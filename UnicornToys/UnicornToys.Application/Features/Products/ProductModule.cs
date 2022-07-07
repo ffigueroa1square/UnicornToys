@@ -17,7 +17,7 @@ namespace UnicornToys.Application.Features.Products
         {
             builder.RegisterType<GetProductQuery>().As<IRequest<ProductDto>>().AsImplementedInterfaces();
             builder.RegisterType<GetProductsQuery>().As<IRequest<IEnumerable<ProductDto>>>().AsImplementedInterfaces();
-            builder.RegisterType<CreateProductCommand>().As<IRequest<Product>>().AsImplementedInterfaces();
+            builder.RegisterType<CreateProductCommand>().As<IRequest<bool>>().AsImplementedInterfaces();
             builder.RegisterType<DeleteProductCommand>().As<IRequest<bool>>().AsImplementedInterfaces();
             builder.RegisterType<UpdateProductCommand>().As<IRequest<bool>>().AsImplementedInterfaces();
             builder.RegisterType<GetProductHandler>().As<IRequestHandler<GetProductQuery, ProductDto>>().AsImplementedInterfaces();

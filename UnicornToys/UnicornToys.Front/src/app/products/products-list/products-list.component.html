@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-md-auto">
+    <div class="form-group">
+      <a [routerLink]="['./new']" class="btn btn-outline-primary">{{
+        "PRODUCTS.ADD" | translate
+      }}</a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <mat-table
+    id="products-table"
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+  >
+    <!-- Id Column -->
+    <ng-container matColumnDef="Id">
+      <mat-header-cell *matHeaderCellDef>
+        {{ "PRODUCTS.ID" | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef
+        >{{ "PRODUCTS.NAME" | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+    </ng-container>
+
+    <!-- AgeRestriction Column -->
+    <ng-container matColumnDef="AgeRestriction">
+      <mat-header-cell *matHeaderCellDef>
+        {{ "PRODUCTS.AGE_RESTRICTION" | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.ageRestriction }}</mat-cell
+      >
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="Price">
+      <mat-header-cell *matHeaderCellDef>
+        {{ "PRODUCTS.PRICE" | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
+    </ng-container>
+
+    <!-- Company Column -->
+    <ng-container matColumnDef="Company">
+      <mat-header-cell *matHeaderCellDef>
+        {{ "PRODUCTS.COMPANY" | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.company }} </mat-cell>
+    </ng-container>    
+
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="5">
+        Loding data...
+      </mat-footer-cell>
+    </ng-container>
+
+    <!-- NoData Column -->
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="5">
+        No record found.
+      </mat-footer-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <mat-footer-row
+      *matFooterRowDef="['noData']"
+      [hidden]="dataSource && dataSource.data.length > 0"
+    ></mat-footer-row>
+    <mat-footer-row
+      *matFooterRowDef="['loading']"
+      [hidden]="dataSource !== undefined && isLoading == false"
+    ></mat-footer-row>
+  </mat-table>
+</div>

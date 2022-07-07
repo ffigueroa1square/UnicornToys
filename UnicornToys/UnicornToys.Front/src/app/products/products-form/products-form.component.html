@@ -1,0 +1,58 @@
+<form [formGroup]="form" #formData="ngForm" (ngSubmit)="submit()" autocomplete="off">
+    <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "PRODUCTS.NAME" | translate }}</mat-label>
+          <input id="name-input" matInput formControlName="name" required>
+          <mat-error *ngFor="let validation of validations.Name">
+            <span
+                *ngIf="hasError(formData, 'name', validation)">{{validation.message | translate:validation.params}}</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "PRODUCTS.PRICE" | translate }}</mat-label>
+          <input id="price-input" matInput formControlName="price" required>
+          <mat-error *ngFor="let validation of validations.Price">
+            <span
+                *ngIf="hasError(formData, 'price', validation)">{{validation.message | translate:validation.params}}</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "PRODUCTS.COMPANY" | translate }}</mat-label>
+          <input id="company-input" matInput formControlName="company" required>
+          <mat-error *ngFor="let validation of validations.Company">
+            <span
+                *ngIf="hasError(formData, 'company', validation)">{{validation.message | translate:validation.params}}</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "PRODUCTS.AGE_RESTRICTION" | translate }}</mat-label>
+          <input id="age-input" matInput formControlName="ageRestriction">
+          <mat-error *ngFor="let validation of validations.AgeRestriction">
+            <span
+                *ngIf="hasError(formData, 'ageRestriction', validation)">{{validation.message | translate:validation.params}}</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ "PRODUCTS.DESCRIPTION" | translate }}</mat-label>
+          <textarea  id="description-input" matInput formControlName="description"></textarea>
+          <mat-error *ngFor="let validation of validations.Description">
+            <span
+                *ngIf="hasError(formData, 'description', validation)">{{validation.message | translate:validation.params}}</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary">{{ 'COMMON.SAVE' | translate }}</button>
+          <a [routerLink]="['../']" class="btn btn-secondary">{{ 'COMMON.CANCEL' | translate }}</a>
+        </div>
+      </div>
+</form>

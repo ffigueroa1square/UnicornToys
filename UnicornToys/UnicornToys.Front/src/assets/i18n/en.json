@@ -1,0 +1,50 @@
+{
+    "ERRORS": {
+        "NOT_FOUND": "Resource Not Found",
+        "UNKNOWN": "Unknown Error",
+        "UNREACHABLE": "Could not reach server",
+        "FORBIDDEN": "Forbidden",
+        "BAD_REQUEST": "Bad Request",
+        "GATEWAY_TIMEOUT": "Gateway Timeout",
+        "STATUS_ERROR": "Error Code: {{value}}",
+        "UNPROCESSABLE_ENTITY": "Unprocessable Entity",
+        "UNAUTHORIZED": "Unauthorized"
+    },    
+    "PRODUCTS": {
+        "ID": "Id",
+        "NAME": "Name",
+        "DESCRIPTION": "Description",
+        "AGE_RESTRICTION": "Age Restriction",
+        "COMPANY": "Company",
+        "PRICE": "Price",
+        "ADD": "Add Product"
+    },
+    "VALIDATIONS": {
+        "REQUIRED": "Required field.",
+        "MAX-VALUE": "The {{fieldName}} field's max value is {{requiredValue}}.",
+        "MIN-VALUE": "The {{fieldName}} field's min value is {{requiredValue}}.",
+        "MAX-LENGTH": "The {{fieldName}} field cannot exceed {{fieldLength}} characters long.",
+        "MIN-LENGTH": "The {{fieldName}} field must have at least {{fieldLength}} characters.",        
+        "PATTERN": "Invalid characters.",
+        "NO-SPACES-AROUND": "The {{fieldName}} field does not allow spaces around.",
+        "NO-MULTIPLE-SPACES": "The {{fieldName}} field does not allow multi spaces.",        
+        "MIN-ONE-ALPHANUMERIC": "Please insert at least one alphanumeric character"      
+    },
+    "COMMON": {
+        "SAVE": "Save",
+        "OK": "OK",
+        "CANCEL": "Cancel",
+        "ADD": "Add",
+        "EDIT": "Edit",
+        "DELETE": "Delete",
+        "BACK": "Back",
+        "SAVE_CHANGES": "Save changes",
+        "CANCEL_CLEAR": "Cancel/Clear",
+        "YES": "Yes",
+        "NO": "No",
+        "REMOVE": "Remove",
+        "SAVE_SUCCESS": "The change has been saved successfully",
+        "DELETE_SUCCESS": "The record has been deleted succesfully",
+        "SOMETHING_WRONG": "Something went wrong. Try again."
+    }
+}
