@@ -131,10 +131,4 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
   private back() {
     this._router.navigate(['../'], { relativeTo: this._activatedRouter });
   }
-
-  public showNotificacion() {
-    //this._toastr.success('Hola', 'Prueba');
-    //this._notificationService.success({ key: 'COMMON.SAVE_SUCCESS' });
-    this._notificationService.success('hola', 'titulo');
-  }
 }
