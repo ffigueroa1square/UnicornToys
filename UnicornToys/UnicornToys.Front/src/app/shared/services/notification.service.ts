@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActiveToast, IndividualConfig, ToastrService } from 'ngx-toastr';
 import { forkJoin, map, Observable, of, delay } from 'rxjs';
 import { Resource } from '../models/resource.model';
+import { makeHot } from '../util/observable';
 
 type ToasterFn = (message: string, title?: string, options?: Partial<IndividualConfig>) => ActiveToast<any>;
 
@@ -38,7 +39,7 @@ export class NotificationService {
     title?: string | Resource,
     options?: Partial<IndividualConfig>): Observable<ActiveToast<any>> {
 
-    return forkJoin([this.getMessage(message), this.getMessage(title)])
+      const obs = forkJoin([this.getMessage(message), this.getMessage(title)])
       .pipe(
         // Need to add this delay to ensure the observable will run asynchronously
         delay(10),
@@ -47,6 +48,8 @@ export class NotificationService {
           const toast = fn.bind(this._toastr);
           return toast(results[0], results[1], options);
         }));    
+
+        return makeHot(obs);
   }
 
   private getMessage(message?: string | Resource): Observable<string> {

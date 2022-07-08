@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BaseFormComponent } from 'src/app/shared/base/base-form.component';
 import { FieldValidation } from 'src/app/shared/models/field-validation.model';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
@@ -33,6 +34,7 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
     private _errorHandler: ErrorHandlerService,
     private _activatedRouter: ActivatedRoute,
     private _router: Router,
+    private _toastr: ToastrService,
   ) { 
     super();
 
@@ -128,5 +130,11 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
 
   private back() {
     this._router.navigate(['../'], { relativeTo: this._activatedRouter });
+  }
+
+  public showNotificacion() {
+    //this._toastr.success('Hola', 'Prueba');
+    //this._notificationService.success({ key: 'COMMON.SAVE_SUCCESS' });
+    this._notificationService.success('hola', 'titulo');
   }
 }
