@@ -114,10 +114,10 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
           if(response) {
             this.handleSuccess();
           } else {
-            this._notificationService.success({ key: 'COMMON.SOMETHING_WRONG' });
+            this._notificationService.error({ key: 'COMMON.SOMETHING_WRONG' });
           }
         }
-      })
+      });
     }
   }
 

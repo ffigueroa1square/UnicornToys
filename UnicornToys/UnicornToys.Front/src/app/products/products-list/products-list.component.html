@@ -63,7 +63,7 @@
         <button id="edit-product" (click)="editRedirect(element.id)">
           <fa-icon [icon]="faPencilSquare"></fa-icon>
         </button>
-        <button id="delete-product">
+        <button id="delete-product" (click)="openModal(element.id, element.name)">
           <fa-icon [icon]="faMinusCircle"></fa-icon>
         </button>
       </mat-cell>

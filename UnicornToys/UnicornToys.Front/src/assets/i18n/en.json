@@ -18,7 +18,9 @@
         "COMPANY": "Company",
         "PRICE": "Price",
         "ADD": "Add Product",
-        "ACTIONS": "Actions"
+        "ACTIONS": "Actions",
+        "DELETE_PRODUCT": "Delete Product",
+        "DELETE_MESSAGE_CONFIRMATION": "Are you sure you want to delete the product: "
     },
     "VALIDATIONS": {
         "REQUIRED": "Required field.",

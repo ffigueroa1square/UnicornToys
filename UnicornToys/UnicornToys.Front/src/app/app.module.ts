@@ -1,7 +1,6 @@
-
 // Angular
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,33 +21,35 @@ import { createTranslateLoader } from './config/createTranslateLoader';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 
-var components = [
-  AppComponent
-]
+var components = [AppComponent];
+
+export let InjectorInstance: Injector;
 
 @NgModule({
-  declarations: [
-    components,
-  ],
+  declarations: [components],
   imports: [
-    FormsModule,    
+    FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(DefaultToastrConfig),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
     }),
     SharedModule.forRoot(),
     BrowserModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    FontAwesomeModule    
+    FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+    InjectorInstance = this.injector;
+  }
+}

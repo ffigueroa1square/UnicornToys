@@ -19,7 +19,7 @@ const Providers = [
 
 @NgModule({
   declarations: [
-    Components
+    Components,
   ],
   exports: [
     Components
