@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 
 // 3rd libs
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // App
 import { ProductsListComponent } from './products-list/products-list.component';
@@ -16,6 +17,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsService } from './services/products.service';
 import { ProductsFormComponent } from './products-form/products-form.component';
+
 
 @NgModule({
   imports: [
@@ -25,6 +27,7 @@ import { ProductsFormComponent } from './products-form/products-form.component';
     TranslateModule,
     MatTableModule,
     MatInputModule,
+    FontAwesomeModule,
     SharedModule,
     ProductsRoutingModule,
   ],

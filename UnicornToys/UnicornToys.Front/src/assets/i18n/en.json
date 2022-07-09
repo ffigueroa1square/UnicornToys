@@ -17,7 +17,8 @@
         "AGE_RESTRICTION": "Age Restriction",
         "COMPANY": "Company",
         "PRICE": "Price",
-        "ADD": "Add Product"
+        "ADD": "Add Product",
+        "ACTIONS": "Actions"
     },
     "VALIDATIONS": {
         "REQUIRED": "Required field.",

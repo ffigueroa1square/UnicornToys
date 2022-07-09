@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // 3rd libs
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Components
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ var components = [
     BrowserModule,
     BrowserAnimationsModule, 
     HttpClientModule,
-    AppRoutingModule,    
+    AppRoutingModule,
+    FontAwesomeModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

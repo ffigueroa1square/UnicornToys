@@ -34,7 +34,6 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
     private _errorHandler: ErrorHandlerService,
     private _activatedRouter: ActivatedRoute,
     private _router: Router,
-    private _toastr: ToastrService,
   ) { 
     super();
 
@@ -74,11 +73,11 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
     this.productId = Number(this._activatedRouter.snapshot.params['id']);
 
     if (this.productId && this.productId > 0) {
-      this._productsService.get(this.productId.toString());
+      this.getById();
     }
   }
 
-  getById(id: string) {
+  getById() {
     this._productsService.get(this.productId.toString())
       .subscribe({
         next: (product: Product) => {
