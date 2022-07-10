@@ -4,4 +4,6 @@ export interface ProductDto {
     ageRestriction: number;
     company: string;
     price: number;
+    imageName: string;
+    imageLocation: string;
 }

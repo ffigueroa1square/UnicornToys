@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Resources/Images folder that is used for show product's image
+/UnicornToys.API/Resources/Images/*
+!/UnicornToys.API/Resources/Images/No_image_available.svg.png
+/UnicornToys/UnicornToys.API/Resources/Images/coffeeTermo.jpg

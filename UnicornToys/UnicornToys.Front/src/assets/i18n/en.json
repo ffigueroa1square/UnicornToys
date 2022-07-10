@@ -20,7 +20,8 @@
         "ADD": "Add Product",
         "ACTIONS": "Actions",
         "DELETE_PRODUCT": "Delete Product",
-        "DELETE_MESSAGE_CONFIRMATION": "Are you sure you want to delete the product: "
+        "DELETE_MESSAGE_CONFIRMATION": "Are you sure you want to delete the product: ",
+        "IMAGE": "Image"
     },
     "VALIDATIONS": {
         "REQUIRED": "Required field.",
@@ -49,5 +50,9 @@
         "SAVE_SUCCESS": "The change has been saved successfully",
         "DELETE_SUCCESS": "The record has been deleted succesfully",
         "SOMETHING_WRONG": "Something went wrong. Try again."
+    },
+    "UPLOAD_IMAGES": {
+        "UPLOAD_FILE": "Upload File",
+        "CHOOSE_FILE": "Choose File"
     }
 }

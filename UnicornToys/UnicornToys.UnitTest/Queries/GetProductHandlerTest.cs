@@ -38,7 +38,9 @@ namespace UnicornToys.UnitTest.Queries
                 Description = "Description 1",
                 AgeRestriction = 10,
                 Company = "Company test",
-                Price = 100
+                Price = 100,
+                ImageName = String.Empty,
+                ImageLocation = String.Empty
             };
             var productDto = new ProductDto()
             {
@@ -47,7 +49,9 @@ namespace UnicornToys.UnitTest.Queries
                 Description = "Description 1",
                 AgeRestriction = 10,
                 Company = "Company test",
-                Price = 100
+                Price = 100,
+                ImageName = String.Empty,
+                ImageLocation = String.Empty
             };
             _unitOfWorkMock.Setup(x => x.GetRepository<Product>().FindById(getProductQuery.Id)).Returns(productResponse);
             var handler = new GetProductHandler(_unitOfWorkMock.Object, _mapper);

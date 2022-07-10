@@ -1,0 +1,20 @@
+<div class="row" class="col mt-3 mb-3 d-flex flex-row">
+  <div class="col-md-3">
+    <input
+      type="file"
+      #file
+      placeholder="{{'UPLOAD_IMAGES.CHOOSE_FILE' | translate}}"
+      (change)="uploadFile(file.files)"
+      style="display: none"
+    />
+    <button type="button" class="btn btn-success" (click)="file.click()">
+      {{"UPLOAD_IMAGES.UPLOAD_FILE" | translate}}
+    </button>
+  </div>
+  <div class="col-md-4">
+    <span class="upload" *ngIf="progress > 0"> {{ progress }}% </span>
+    <span class="upload" *ngIf="message">
+      {{ message }}
+    </span>
+  </div>
+</div>

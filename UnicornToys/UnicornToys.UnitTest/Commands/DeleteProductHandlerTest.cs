@@ -31,7 +31,9 @@ namespace UnicornToys.UnitTest.Commands
                 Description = "Description 1",
                 AgeRestriction = 10,
                 Company = "Company test",
-                Price = 100m
+                Price = 100m,
+                ImageName = String.Empty,
+                ImageLocation = String.Empty
             };
             _unitOfWorkMock.Setup(x => x.GetRepository<Product>().FindById(It.IsAny<int>())).Returns(productResponse);
             _unitOfWorkMock.Setup(x => x.GetRepository<Product>().Remove(It.IsAny<Product>()));

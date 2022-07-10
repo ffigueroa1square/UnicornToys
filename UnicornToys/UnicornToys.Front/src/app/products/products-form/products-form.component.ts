@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { BaseFormComponent } from 'src/app/shared/base/base-form.component';
 import { FieldValidation } from 'src/app/shared/models/field-validation.model';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
@@ -19,6 +18,7 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
   public submitted = false;
   public productId: number = 0;
   public form: FormGroup;
+  public fileResponse = {dbPath: ''};
   validations: {
     Name: FieldValidation[],
     Price: FieldValidation[],
@@ -65,7 +65,9 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
       price: [1, [Validators.required, Validators.min(1), Validators.max(1000)]],
       ageRestriction: [0, [Validators.min(0), Validators.max(100)]],
       company: ['', [Validators.required, Validators.maxLength(50)]],
-      description: ['', Validators.maxLength(100)]
+      description: ['', Validators.maxLength(100)],
+      imageName: [''],
+      imageLocation: ['']
     })
   }
 
@@ -94,7 +96,12 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    let model = this.form.value;    
+    let model = this.form.value;
+    if (this.fileResponse.dbPath != null && this.fileResponse.dbPath.length > 0) {
+      model.imageLocation = this.fileResponse.dbPath;
+      const folderPath = this.fileResponse.dbPath.split("\\");
+      model.imageName = folderPath.pop();
+    }
     if (this.productId && this.productId > 0) {
       model.id = this.productId;
       this._productsService.put(this.productId.toString(), model)      
@@ -119,6 +126,10 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
         }
       });
     }
+  }
+
+  uploadFinished = (event: any) => { 
+    this.fileResponse = event; 
   }
 
   private handleSuccess(): void {

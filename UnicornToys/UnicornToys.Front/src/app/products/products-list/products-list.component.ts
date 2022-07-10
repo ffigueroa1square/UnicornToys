@@ -8,6 +8,7 @@ import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { AppResources } from 'src/app/shared/models/app-resources';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
 
@@ -18,11 +19,13 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductsListComponent implements OnInit {
 
-  public displayedColumns: string[] = ['Id', 'Name', 'AgeRestriction', 'Price', 'Company', 'Actions'];
+  private defaultImgPath = "Resources/Images/No_image_available.svg.png";
+  public displayedColumns: string[] = ['Id', 'Image', 'Name', 'AgeRestriction', 'Price', 'Company', 'Actions'];
   public dataSource!: MatTableDataSource<Product>;
   public isLoading = false;
   public faPencilSquare = faPencilSquare;
   public faMinusCircle = faMinusCircle;
+  public apiUrl = environment.baseApiUrl;
 
   constructor(
     private _notificationService: NotificationService,
@@ -85,7 +88,18 @@ export class ProductsListComponent implements OnInit {
         } else {
           this._notificationService.error({ key: 'COMMON.SOMETHING_WRONG' });
         }
+      },
+      error: errorResponse => {
+        this._errorHandler.handle(errorResponse);
       }
     });
+  }
+
+  getImagePath(path: string): string {
+    if (path && path.length > 0) {
+      return this.apiUrl + "/" + path;
+    } else {
+      return this.apiUrl + "/" + this.defaultImgPath;
+    }
   }
 }

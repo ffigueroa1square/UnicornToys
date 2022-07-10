@@ -9,5 +9,7 @@ namespace UnicornToys.Domain.Products
         public int AgeRestriction { get; set; }
         public string Company { get; set; }
         public decimal Price { get; set; }
+        public string ImageName { get; set; }
+        public string ImageLocation { get; set; }
     }
 }

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Material
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 // 3rd libs
 import { TranslateModule } from '@ngx-translate/core';
@@ -27,6 +28,7 @@ import { ProductsFormComponent } from './products-form/products-form.component';
     TranslateModule,
     MatTableModule,
     MatInputModule,
+    MatCardModule,
     FontAwesomeModule,
     SharedModule,
     ProductsRoutingModule,

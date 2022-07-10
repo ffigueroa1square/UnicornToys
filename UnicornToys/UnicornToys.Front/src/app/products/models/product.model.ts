@@ -5,4 +5,6 @@ export interface Product {
     ageRestriction: number;
     company: string;
     price: number;
+    imageName: string;
+    imageLocation: string;
 }

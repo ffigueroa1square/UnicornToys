@@ -63,6 +63,7 @@
       </mat-error>
     </mat-form-field>
   </div>
+  <app-upload-images (onUploadFinished)="uploadFinished($event)"></app-upload-images>
   <div class="row">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button type="submit" class="btn btn-primary">

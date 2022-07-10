@@ -39,7 +39,9 @@ namespace UnicornToys.UnitTest.Queries
                     Description = "Description 1",
                     AgeRestriction = 10,
                     Company = "Company test",
-                    Price = 100
+                    Price = 100,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 },
                 new Product ()
                 {
@@ -48,7 +50,9 @@ namespace UnicornToys.UnitTest.Queries
                     Description = "Description 2",
                     AgeRestriction = 20,
                     Company = "Company test",
-                    Price = 200
+                    Price = 200,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 }
             };
 
@@ -63,7 +67,9 @@ namespace UnicornToys.UnitTest.Queries
                     Description = "Description 1",
                     AgeRestriction = 10,
                     Company = "Company test",
-                    Price = 100
+                    Price = 100,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 },
                 new ProductDto
                 {
@@ -72,7 +78,9 @@ namespace UnicornToys.UnitTest.Queries
                     Description = "Description 2",
                     AgeRestriction = 20,
                     Company = "Company test",
-                    Price = 200
+                    Price = 200,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 }
             };
 

@@ -37,7 +37,9 @@ namespace UnicornToys.UnitTest.Commands
                 Description = "Description 1",
                 AgeRestriction = 10,
                 Company = "Company test",
-                Price = 100m
+                Price = 100m,
+                ImageName = String.Empty,
+                ImageLocation = String.Empty
             };
             var updateProductCommand = new UpdateProductCommand()
             {
@@ -48,7 +50,9 @@ namespace UnicornToys.UnitTest.Commands
                     Description = "Description 1",
                     AgeRestriction = 10,
                     Company = "Company test",
-                    Price = 100m
+                    Price = 100m,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 },
                 Id = 1
             };
@@ -78,7 +82,9 @@ namespace UnicornToys.UnitTest.Commands
                     Description = "Description 1",
                     AgeRestriction = 10,
                     Company = "Company test",
-                    Price = 100m
+                    Price = 100m,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 },
                 Id = 1
             };
@@ -108,7 +114,9 @@ namespace UnicornToys.UnitTest.Commands
                     Description = "",
                     AgeRestriction = 1000,
                     Company = "Company test",
-                    Price = 0m
+                    Price = 0m,
+                    ImageName = String.Empty,
+                    ImageLocation = String.Empty
                 },
                 Id = 1
             };

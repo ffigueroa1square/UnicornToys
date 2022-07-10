@@ -7,14 +7,18 @@ import { DialogComponent } from './dialog/dialog.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { UploadImagesService } from './services/upload-images.service';
 
 const Components = [
-  DialogComponent
+  DialogComponent,
+  UploadImagesComponent
 ]
 
 const Providers = [
   NotificationService,
-  ErrorHandlerService
+  ErrorHandlerService,
+  UploadImagesService
 ]
 
 @NgModule({
