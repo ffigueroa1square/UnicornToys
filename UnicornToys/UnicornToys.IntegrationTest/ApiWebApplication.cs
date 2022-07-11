@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.PlatformAbstractions;
 using UnicornToys.API;
 using UnicornToys.Persistence.Contexts;
 
@@ -24,6 +25,11 @@ namespace UnicornToys.IntegrationTest
                     .Options;
                 });
             });
+
+            var path = PlatformServices.Default.Application.ApplicationBasePath;
+            var setDir = Path.GetFullPath(Path.Combine(path, Path.Combine(Directory.GetCurrentDirectory(), @"Resources")));
+
+            builder.UseContentRoot(setDir);
 
             return base.CreateHost(builder);
         }
