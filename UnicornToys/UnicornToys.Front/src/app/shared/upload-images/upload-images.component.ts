@@ -11,7 +11,7 @@ import { UploadImagesService } from '../services/upload-images.service';
 export class UploadImagesComponent implements OnInit {
   public progress: number = 0;
   public message?: string = undefined;
-  @Output() public onUploadFinished = new EventEmitter();
+  @Output() public onUploadFinished: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private _uploadImagesService: UploadImagesService,
