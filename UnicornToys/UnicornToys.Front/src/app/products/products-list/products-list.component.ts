@@ -3,7 +3,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faMinusCircle, faPencilSquare } from '@fortawesome/free-solid-svg-icons';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, takeUntil } from 'rxjs';
+import { BaseComponent } from 'src/app/shared/base/base.component';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { AppResources } from 'src/app/shared/models/app-resources';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
@@ -17,7 +18,7 @@ import { ProductsService } from '../services/products.service';
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss']
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent extends BaseComponent implements OnInit {
 
   private defaultImgPath = "Resources/Images/No_image_available.svg.png";
   public displayedColumns: string[] = ['Id', 'Image', 'Name', 'AgeRestriction', 'Price', 'Company', 'Actions'];
@@ -33,7 +34,9 @@ export class ProductsListComponent implements OnInit {
     private _errorHandler: ErrorHandlerService,
     private _router: Router,
     private _activatedRouter: ActivatedRoute,
-    private dialog: MatDialog,) { }
+    private dialog: MatDialog,) {
+    super();
+  }
 
   ngOnInit(): void {
     this.getProducts();
@@ -42,6 +45,9 @@ export class ProductsListComponent implements OnInit {
   getProducts(): void {
     this.isLoading = true;
     this._productsService.getProducts()
+    .pipe(
+      takeUntil(this.componentDestroys),
+    )
     .subscribe({
       next: (result: Product[]) => {
           this.dataSource = new MatTableDataSource(result);

@@ -79,7 +79,7 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
     }
   }
 
-  getById() {
+  getById(): void {
     this._productsService.get(this.productId.toString())
       .subscribe({
         next: (product: Product) => {
@@ -112,6 +112,9 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
             } else {
               this._notificationService.success({ key: 'COMMON.SOMETHING_WRONG' });
             }
+          },
+          error: errorRespnse => {
+            this._errorHandler.handle(errorRespnse);
           }
         })
     } else {
@@ -123,6 +126,9 @@ export class ProductsFormComponent extends BaseFormComponent implements OnInit {
           } else {
             this._notificationService.error({ key: 'COMMON.SOMETHING_WRONG' });
           }
+        },
+        error: errorRespnse => {
+          this._errorHandler.handle(errorRespnse);
         }
       });
     }
