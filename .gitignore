@@ -366,3 +366,6 @@ FodyWeavers.xsd
 /UnicornToys.API/Resources/Images/*
 !/UnicornToys.API/Resources/Images/No_image_available.svg.png
 /UnicornToys/UnicornToys.API/Resources/Images/coffeeTermo.jpg
+
+# Serilog
+**/logs/log-.txt
