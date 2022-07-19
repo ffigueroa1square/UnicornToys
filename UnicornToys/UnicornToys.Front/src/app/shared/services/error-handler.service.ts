@@ -10,7 +10,7 @@ export class ErrorHandlerService {
   handle(errorResponse: HttpErrorResponse) {
     switch (errorResponse.status) {
       case 0:
-        this._notificationService.error({ key: 'app.errors.UNREACHABLE' });
+        this._notificationService.error({ key: 'ERRORS.UNREACHABLE' });
         break;
       case 400:
         if (typeof(errorResponse.error)) {
